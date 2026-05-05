@@ -1,0 +1,145 @@
+* {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px auto 0;
+  line-height: 1.6;
+}
+:root {
+  --text-color: rgb(224, 207, 183);
+  --bg-color: rgb(27, 23, 38);
+  --stroke-color: rgb(224, 207, 183, 0.5);
+  --surface-color: rgb(224, 207, 183, 0.2);
+  --highlight-color: rgb(224, 207, 183, 0.1);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: rgb(27, 23, 38);
+  --bg-color: rgb(224, 207, 183);
+  --stoke-color: rgb(27, 23, 38, 0.5);
+  --surface-color: rgb(27, 23, 38, 0.2);
+  --highlight-color: rgb(27, 23, 38, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background: var(--bg-color);
+  height: 100vh;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+/*switch*/
+#switch {
+  position: relative;
+  width: 48px;
+  margin: 4px auto;
+}
+#switch button {
+  width: 24px;
+  height: 24px;
+  background: rgba(244, 231, 218, 0.6) var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
+}
+
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 48px;
+  height: 16px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+header {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+#title {
+  padding-bottom: 16px;
+  font-size: 18px;
+  padding-top: 32px;
+}
+#intro {
+  padding-top: 16px;
+}
+
+nav a {
+  margin: 0 8px;
+  margin-right: 12px;
+}
+
+ul li a {
+  gap: 5px;
+}
+
+section {
+  margin-bottom: 32px;
+}
+
+h2 {
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 8px;
+}
+
+address {
+  font-style: normal;
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*media queries*/
+@media (min-width: 700px) {
+  ::after {
+    --bg-color: rgb(27, 23, 38);
+  }
+
+  .light {
+    --bg-color: rgb(200, 177, 145);
+  }
+}
+
+/*animation*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
